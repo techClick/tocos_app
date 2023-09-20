@@ -4,7 +4,7 @@ import { networkResponse } from "./globals";
 const express = require('express')
 const router = express.Router()
 
-router.get('/', async (req, res) => {
+router.get('/users', async (req, res) => {
   try {
     const client = await db.connect();
     // await client.sql`DROP TABLE IF EXISTS Users`
