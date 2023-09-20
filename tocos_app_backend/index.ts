@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const cors = require('cors')
-// const client = require('./connection')
+const client = require('./connection')
 const app = express();
 ['users'].map((endPoint)=> app.use(`/`, require(`./routes/${endPoint}`)))
 require('dotenv').config()
