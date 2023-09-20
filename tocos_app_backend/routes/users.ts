@@ -1,10 +1,10 @@
 
 import { db } from "@vercel/postgres";
 import { networkResponse } from "./globals";
-const users_express = require('express')
-const router = users_express.Router()
+const express = require('express')
+const router = express.Router()
 
-router.post('/users', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const client = await db.connect();
     // await client.sql`DROP TABLE IF EXISTS Users`

@@ -1,7 +1,7 @@
 
-const express = require('express')
+const main_express = require('express')
 const cors = require('cors')
-const app = express();
+const app = main_express();
 ['users', 'transactions'].map((endPoint)=> app.use(`/`, require(`./routes/${endPoint}`)))
 require('dotenv').config()
 
