@@ -10,7 +10,7 @@ app.use(cors())
 
 const port = process.env.PORT || 8000
 
-// client.connect();
+client.connect();
 app.get('/', (req, res) => {
   // client.query('Select * from users', (err, result) => {
   //   if (!err) {
