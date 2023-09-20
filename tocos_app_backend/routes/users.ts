@@ -1,36 +1,36 @@
 
 import { db } from "@vercel/postgres";
-import { NetworkStatus, networkResponse } from "./globals";
+import { networkResponse } from "./globals";
 const users_express = require('express')
 const router = users_express.Router()
 
 router.get('/users', async (req, res) => {
-  let client;
   try {
-    client = await db.connect();
+    const client = await db.connect();
     // await client.sql`DROP TABLE IF EXISTS Users`
     await client.sql`CREATE TABLE IF NOT EXISTS Users ( id serial PRIMARY KEY, tocos integer )`
     await client.sql`INSERT INTO Users (tocos) VALUES (2500)`
+    const users = await client.sql`Select * from Users`
+    res.status(200).json((networkResponse('success', users.rows.length)));
   } catch(error) {
-    return res.status(500).send((networkResponse('error', error)));
+    res.status(500).json((networkResponse('error', error)));
   }
-
-  const users = await client.sql`Select * from Users`
-  return res.status(200).send((networkResponse('success', users.rows.length)));
 })
 
-router.get('/users/{id}', async (req, res) => {
-  let client;
+router.get('/users/:id', async (req, res) => {
   try {
-    client = await db.connect();
-    await client.sql`CREATE TABLE IF NOT EXISTS Users ( id serial PRIMARY KEY, tocos integer )`
-    await client.sql`INSERT INTO Users (tocos) VALUES (2500)`
+    const client = await db.connect();
+    const allUsers = await client.sql`Select * from Users`;
+    const allUsersLength = allUsers.rows.length;
+    const queryId = req.params.id;
+    if (Number(queryId) > allUsersLength) {
+      return res.status(400).json((networkResponse('error', allUsersLength)));
+    }
+    const users = await client.sql`Select tocos from Users WHERE id=${queryId}`
+    res.status(200).json((networkResponse('success', users.rows)));
   } catch(error) {
-    return res.status(500).send((networkResponse('error', error)));
+    res.status(500).json((networkResponse('error', error)));
   }
-
-  const users = await client.sql`Select * from Users`
-  return res.status(200).send((networkResponse('success', users.rows.length)));
 })
 
 module.exports = router

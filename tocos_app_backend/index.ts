@@ -4,7 +4,6 @@ const cors = require('cors')
 const app = express();
 ['users'].map((endPoint)=> app.use(`/`, require(`./routes/${endPoint}`)))
 require('dotenv').config()
-import { networkResponse } from "./routes/globals";
 
 app.use(cors())
 
