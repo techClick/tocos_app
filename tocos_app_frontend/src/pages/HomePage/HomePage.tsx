@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import * as S from './HomePage.styled';
 import Function from './Function';
 import { toast } from 'react-toastify';
+import { addUser } from 'pages/redux';
+import { useDispatch } from 'react-redux';
 
 const HomePage = function HomePage() {
   // toast('Please try again a little while later!', { type: 'warning' });
@@ -9,12 +11,17 @@ const HomePage = function HomePage() {
   const [senderId, setSenderId] = useState<string>();
   const [receiverId, setReceiverId] = useState<string>();
   const [tocosToSend, setTocosToSend] = useState<string>();
+  const dispatch = useDispatch();
 
   return (
     <S.Container>
       <Function
         title='Create new user'
         buttonText='Create'
+        onClick={async () => {
+          console.log('DONE');
+          const response: any = await dispatch(addUser());
+        }}
       />
       <Function
         title='Check users Tocos'

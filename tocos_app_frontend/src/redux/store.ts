@@ -3,7 +3,7 @@ import viewsReducer from '../pages/redux';
 
 export const store = configureStore({
   reducer: {
-    pages: viewsReducer,
+    views: viewsReducer,
   },
 });
 

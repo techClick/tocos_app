@@ -14,14 +14,14 @@ export const callEndpoint = ({
   };
   // if (noContentType) delete options.headers['Content-Type'];
   try {
-    const url = [process.env.REACT_APP_APIPRE, process.env.REACT_APP_APIPRE2][prefix];
-    // console.log('calling ..... ', `${url}${api}`);
+    const url = process.env.REACT_APP_API;
+    console.log('calling ..... ', `${url}${api}`);
     const response = await fetch(
       `${url}${api}`,
       options,
     );
 
-    // console.log('response', response);
+    console.log('response', response);
     if (!response) {
       return { status: 'error', description: 'Internet connection is not detected' } as IResponse;
     }

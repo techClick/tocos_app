@@ -1,35 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { callEndpoint } from 'endPoint/endPoint';
-import { RootState } from 'redux/store';
 import { IResponse } from 'types/types';
 
-export interface ViewsState {
-  isProductInterest: boolean
-}
+export interface ViewsState {}
 
-const initialState: ViewsState = {
-  isProductInterest: false,
-};
+const initialState: ViewsState = {};
 
 export const counterSlice = createSlice({
   name: 'pages',
   initialState,
-  reducers: {
-    setIsProductInterest: (state, action) => {
-      state.isProductInterest = action.payload;
-    },
-  },
+  reducers: {},
 });
-
-export const { setIsProductInterest } = counterSlice.actions;
-
-export const selectIsProductInterest = (state: RootState) => state.pages.isProductInterest;
 
 export default counterSlice.reducer;
 
-export const payBulk = () => async (dispatch: Function): Promise<IResponse> => {
+export const addUser = () => async (dispatch: Function): Promise<IResponse> => {
   const response: IResponse = await dispatch(
-    callEndpoint({ prefix: 1, api: 'V1.0/pay.php' }),
+    callEndpoint({ prefix: 1, api: 'users' }),
   );
   // console.log('FINAL', response);
   return response;
