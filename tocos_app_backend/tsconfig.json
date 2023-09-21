@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
-      "types": ["node"],
+      "types": ["node", "jest"],
   },
-  "include": [".eslintrc.js", "*.ts", "routes/*.ts"]
+  "include": [".eslintrc.js", "babel.config.js", "*.ts", "routes/*.ts"],
+  "target": "esnext", 
+  "module": "commonjs", 
+  "esModuleInterop": true
 }

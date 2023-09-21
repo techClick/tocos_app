@@ -1,14 +1,14 @@
 const mainExpress = require('express')
 const cors = require('cors')
-const app = mainExpress()
-app.use(cors())
-app.use(mainExpress.urlencoded({ extended: true }))
-app.use(mainExpress.json());
-['users', 'transactions'].map((endPoint) => app.use('/', require(`./routes/${endPoint}`)))
+const mainApp = mainExpress()
+mainApp.use(cors())
+mainApp.use(mainExpress.urlencoded({ extended: true }))
+mainApp.use(mainExpress.json());
+['users', 'transactions'].map((endPoint) => mainApp.use('/', require(`./routes/${endPoint}`)))
 require('dotenv').config()
 
 const port = process.env.PORT || 8000
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+mainApp.listen(port, () => {
+  console.log(`Listening on port ${port}`)
 })
