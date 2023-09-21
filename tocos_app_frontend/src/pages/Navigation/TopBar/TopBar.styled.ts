@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { topBarHeight, topBarColor } from 'views/styles';
+import { topBarHeight, topBarColor } from 'pages/styles';
 
 export const Container = styled.div`
   background: ${topBarColor};
