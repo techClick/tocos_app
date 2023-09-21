@@ -5,7 +5,6 @@ import {
   Switch,
 } from 'react-router-dom';
 import Loader from 'pages/components/Loader/Loader';
-import Homepage from 'pages/HomePage';
 
 // // const HomePage = lazy(() => import('../pages/Homepage/Homepage'));
 
@@ -17,7 +16,6 @@ const Routing = function Routing() {
       <Suspense fallback={<Loader />}>
         <Switch>
           <Route exact path="/">
-            <Homepage />
           </Route>
         </Switch>
       </Suspense>
