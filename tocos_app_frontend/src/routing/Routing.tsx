@@ -1,11 +1,14 @@
-import React, { lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
 } from 'react-router-dom';
 import Loader from 'pages/components/Loader/Loader';
-import Homepage from 'pages/Homepage/Homepage';
+import Homepage from 'pages/Homepage';
+
+
+// const HomePage = lazy(() => import('../pages/Homepage/Homepage'));
 
 (document.body.style as any).zoom = '100%';
 
