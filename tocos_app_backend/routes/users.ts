@@ -7,10 +7,11 @@ const router = express.Router()
 router.post('/users', async (req, res) => {
   try {
     const client = await db.connect();
+    await client.sql`DROP TABLE IF EXISTS Users`;
     await client.sql`CREATE TABLE IF NOT EXISTS Users ( id serial PRIMARY KEY, tocos integer )`
     await client.sql`INSERT INTO Users (tocos) VALUES (2500)`
-    const users = await client.sql`Select * from Users`
-    res.status(200).json((networkResponse('success', users.rows.length)));
+    const users = await client.sql`SELECT currval('public.users_id_seq')`
+    res.status(200).json((networkResponse('success', users.rows[0].currval)));
   } catch(error) {
     res.status(500).json((networkResponse('error', error)));
   }
@@ -19,8 +20,8 @@ router.post('/users', async (req, res) => {
 router.get('/users/:id', async (req, res) => {
   try {
     const client = await db.connect();
-    const allUsers = await client.sql`Select * from Users`;
-    const allUsersLength = allUsers.rows.length;
+    const allUsers = await client.sql`SELECT currval('public.users_id_seq')`
+    const allUsersLength = allUsers.rows[0].currval;
     const queryId = req.params.id;
     if (Number(queryId) > allUsersLength) {
       return res.status(400).json((networkResponse('error', allUsersLength)));
