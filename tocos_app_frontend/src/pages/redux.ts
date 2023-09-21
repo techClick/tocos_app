@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { callEndpoint } from 'endpoint/endpoint';
+import { callEndpoint } from 'endPoint/endPoint';
 import { RootState } from 'redux/store';
 import { IResponse } from 'types/types';
 

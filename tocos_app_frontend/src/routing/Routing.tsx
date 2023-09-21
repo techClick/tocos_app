@@ -5,7 +5,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import Loader from 'pages/components/Loader/Loader';
-import Homepage from 'pages/Homepage';
+import Homepage from 'pages/HomePage';
 
 // const HomePage = lazy(() => import('../pages/Homepage/Homepage'));
 
