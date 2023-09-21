@@ -25,7 +25,6 @@ const Function = function Function({
   result,
   resultText,
 }: FunctionProps) {
-  console.log(thisResult, result, thisResult === result);
   const showThisResult = thisResult === result;
 
   return (

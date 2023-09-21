@@ -1,32 +1,39 @@
 import React, { useState } from 'react';
 import { ApiFunctionResult } from 'types/types';
 import { toast } from 'react-toastify';
-import { addUser } from 'pages/redux';
+import { addUser, getUserBalance, transact } from 'pages/redux';
 import { useDispatch } from 'react-redux';
 import * as S from './HomePage.styled';
 import Function from './Function';
+import Loading from './Loading';
 
 const HomePage = function HomePage() {
-  // toast('Please try again a little while later!', { type: 'warning' });
   const [idForCheckBalance, setIdForCheckBalance] = useState<string>();
   const [senderId, setSenderId] = useState<string>();
   const [receiverId, setReceiverId] = useState<string>();
   const [tocosToSend, setTocosToSend] = useState<string>();
   const [apiResult, setApiResult] = useState<ApiFunctionResult>(0);
   const [apiResultText, setApiResultText] = useState<string>();
+  const [isShowLoading, setIsShowLoading] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   return (
     <S.Container>
+      { isShowLoading && <Loading />}
       <Function
         title='Create new user'
         buttonText='Create'
         onClick={async () => {
           setApiResult(0);
+          setIsShowLoading(true);
           const response: any = await dispatch(addUser());
-          console.log('DONE', response);
-          setApiResult(1);
-          setApiResultText('This is done');
+          setIsShowLoading(false);
+          if (response.status === 'success') {
+            setApiResult(1);
+            setApiResultText(`User ${response.data} has been added.`);
+          } else {
+            toast(response.data, { type: 'error' });
+          }
         }}
         thisResult={1}
         result={apiResult}
@@ -45,14 +52,23 @@ const HomePage = function HomePage() {
         thisResult={2}
         result={apiResult}
         resultText={apiResultText}
-        onClick={() => {
+        onClick={async () => {
           if (!idForCheckBalance) {
             toast('You must set Id to check', { type: 'error' });
             return;
           }
           setApiResult(0);
-          setApiResult(2);
-          setApiResultText('This is done');
+          setIsShowLoading(true);
+          const response: any = await dispatch(getUserBalance(Number(idForCheckBalance)));
+          setIsShowLoading(false);
+          if (response.status === 'success') {
+            setApiResult(2);
+            setApiResultText(
+              `User ${idForCheckBalance} has ${response.data} toco${Number(response.data) === 1 ? '' : 's'}.`,
+            );
+          } else {
+            toast(`No such user. Last user id is ${response.data}.`, { type: 'error' });
+          }
         }}
       />
       <Function
@@ -74,7 +90,7 @@ const HomePage = function HomePage() {
         thisResult={3}
         result={apiResult}
         resultText={apiResultText}
-        onClick={() => {
+        onClick={async () => {
           if (!senderId) {
             toast('You must set Senders Id', { type: 'error' });
             return;
@@ -88,8 +104,17 @@ const HomePage = function HomePage() {
             return;
           }
           setApiResult(0);
-          setApiResult(3);
-          setApiResultText('This is done');
+          setIsShowLoading(true);
+          const response: any = await dispatch(
+            transact(Number(senderId), Number(receiverId), Number(tocosToSend)),
+          );
+          setIsShowLoading(false);
+          if (response.status === 'success') {
+            setApiResult(3);
+            setApiResultText('Successful!');
+          } else {
+            toast(response.data, { type: 'error' });
+          }
         }}
       />
     </S.Container>

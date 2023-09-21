@@ -1,11 +1,12 @@
 import styled, { CSSProperties } from 'styled-components';
 
 export const Container = styled.div`
-  width: 70%;
+  width: max-content;
+  background: lightgreen;
 `;
 
 export const TopContainer = styled.div`
-  width: 100%;
+  width: 70vw;
   max-width: 500px;
   height: max-content;
   padding: 30px 20px;

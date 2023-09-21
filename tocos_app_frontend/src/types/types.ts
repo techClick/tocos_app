@@ -1,11 +1,10 @@
 export type IResponse = {
   status: 'error' | 'success',
   data?: string,
-  description: string,
+  code: number,
 };
 
 export type CallArgs = {
-  prefix: 1 | 2,
   api: string,
   noStatus?: boolean,
   method?: string,
