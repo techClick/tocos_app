@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { callEndpoint } from '../endpoint/endpoint';
-import { RootState } from '../redux/store';
-import { IResponse } from '../types/types';
+import { callEndpoint } from 'endpoint/endpoint';
+import { RootState } from 'redux/store';
+import { IResponse } from 'types/types';
 
 export interface ViewsState {
   isProductInterest: boolean
