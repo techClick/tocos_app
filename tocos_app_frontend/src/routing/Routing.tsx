@@ -5,8 +5,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import Loader from 'pages/components/Loader/Loader';
-
-const HomePage = lazy(() => import('../pages/Homepage/Homepage'));
+import Homepage from 'pages/Homepage/Homepage';
 
 (document.body.style as any).zoom = '100%';
 
@@ -16,7 +15,7 @@ const Routing = function Routing() {
       <Suspense fallback={<Loader />}>
         <Switch>
           <Route exact path="/">
-            <HomePage />
+            <Homepage />
           </Route>
         </Switch>
       </Suspense>
