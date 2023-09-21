@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import Loader from 'pages/components/Loader/Loader';
 
-const HomePage = lazy(() => import('pages/Homepage/Homepage'));
+const HomePage = lazy(() => import('../pages/Homepage/Homepage'));
 
 (document.body.style as any).zoom = '100%';
 
