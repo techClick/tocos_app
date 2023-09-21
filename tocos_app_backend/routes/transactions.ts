@@ -24,7 +24,7 @@ router.post('/transactions', async (req, res) => {
     const senderTocos = Number(senderData.rows[0].tocos);
     const newSenderTocos = senderTocos - tocos;
     if (newSenderTocos < 0) {
-      return res.status(400).json((networkResponse('error', 'Not enough Tocos.')));
+      return res.status(400).json((networkResponse('error', 'Sender does not have enough Tocos')));
     }
     await client.sql`UPDATE Users SET tocos = ${newSenderTocos} WHERE id=${senderId}`
   
