@@ -30,7 +30,9 @@
       "no-param-reassign": 0,
       "react/no-array-index-key": 0,
       "react/jsx-no-useless-fragment": 0,
-      "arrow-body-style": 0
-      
+      "arrow-body-style": 0,
+      "react/require-default-props": 0,
+      "jsx-quotes": 0,
+      "react/jsx-wrap-multilines": 0      
     }
 }
