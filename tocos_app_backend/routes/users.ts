@@ -16,7 +16,7 @@ router.post('/users', async (req: Express.Request, res: Express.Response) => {
   }
 })
 
-router.get('/users/:id', async (req: Express.Request, res: Express.Response) => {
+router.get('/users/:id', async (req: Express.Request<{ id: string }>, res: Express.Response) => {
   try {
     const client = await db.connect()
     const allUsers = await client.sql`SELECT MAX(id) from Users`

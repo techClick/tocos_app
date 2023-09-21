@@ -40,7 +40,7 @@ export const Input = styled.input<{ width: CSSProperties['width'] }>`
 `;
 
 export const ResultContainer = styled.div<{ showThisResult: boolean }>`
-  width: 100%;
+  width: 70vw;
   max-width: 500px;
   min-height: 0px;
   height: ${({ showThisResult }) => showThisResult ? '20px' : '0px'};
