@@ -1,18 +1,19 @@
 import React from 'react';
-import { IntlProvider } from 'react-intl';
-import { ToastContainer } from 'react-toastify';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Routing from './routing/Routing';
+import Routing from './Routing';
 import reportWebVitals from './reportWebVitals';
-import 'react-toastify/dist/ReactToastify.css';
+import { store } from './redux/store';
+import Navigation from './views/Navigation/Navigation';
 
 ReactDOM.render(
   <React.StrictMode>
-    <IntlProvider locale="en">
-      <ToastContainer />
-      <Routing />
-    </IntlProvider>
+    <Provider store={store}>
+      <Navigation>
+        <Routing />
+      </Navigation>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
