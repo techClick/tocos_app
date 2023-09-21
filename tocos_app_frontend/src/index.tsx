@@ -2,17 +2,14 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Routing from './Routing';
+import Routing from './routing/Routing';
 import reportWebVitals from './reportWebVitals';
 import { store } from './redux/store';
-import Navigation from './views/Navigation/Navigation';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Navigation>
-        <Routing />
-      </Navigation>
+      <Routing />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
