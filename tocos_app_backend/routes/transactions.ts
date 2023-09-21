@@ -1,21 +1,29 @@
 import { db } from '@vercel/postgres'
 import { networkResponse } from './globals'
+import Express from 'express'
 const express = require('express')
 const router = express.Router()
+interface TypedRequestBody<T> extends Express.Request {
+  body: T
+}
 
-router.post('/transactions', async (req, res) => {
+router.post('/transactions', async (req: TypedRequestBody<{
+  senderId: number
+  receiverId: number
+  tocos: number
+}>, res: Express.Response) => {
   const requestBody = req.body
   const senderId = requestBody.senderId
   const receiverId = requestBody.receiverId
-  const tocos = Number(requestBody.tocos)
+  const tocos = requestBody.tocos
   try {
     const client = await db.connect()
     const allUsers = await client.sql`SELECT MAX(id) from Users`
     const allUsersLength = allUsers.rows[0].max
-    if (Number(senderId) > allUsersLength) {
+    if (senderId > allUsersLength) {
       return res.status(400).json((networkResponse('error', 'Sender Id does not exist')))
     }
-    if (Number(receiverId) > allUsersLength) {
+    if (receiverId > allUsersLength) {
       return res.status(400).json((networkResponse('error', 'Receiver Id does not exist')))
     }
 

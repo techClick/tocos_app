@@ -1,10 +1,10 @@
 import { db } from '@vercel/postgres'
 import { networkResponse } from './globals'
-// import Express from 'express'
+import Express from 'express'
 const express = require('express')
 const router = express.Router()
 
-router.post('/users', async (req, res) => {
+router.post('/users', async (req: Express.Request, res: Express.Response) => {
   try {
     const client = await db.connect()
     await client.sql`CREATE TABLE IF NOT EXISTS Users ( id serial PRIMARY KEY, tocos integer )`
@@ -16,7 +16,7 @@ router.post('/users', async (req, res) => {
   }
 })
 
-router.get('/users/:id', async (req, res) => {
+router.get('/users/:id', async (req: Express.Request, res: Express.Response) => {
   try {
     const client = await db.connect()
     const allUsers = await client.sql`SELECT MAX(id) from Users`
