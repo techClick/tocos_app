@@ -7,7 +7,6 @@ import {
 import Loader from 'pages/components/Loader/Loader';
 import Homepage from 'pages/Homepage';
 
-
 // const HomePage = lazy(() => import('../pages/Homepage/Homepage'));
 
 (document.body.style as any).zoom = '100%';
