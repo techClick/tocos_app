@@ -2,5 +2,5 @@
   "compilerOptions": {
       "types": ["node"],
   },
-  "include": [".eslintrc.js", "index.ts"]
+  "include": [".eslintrc.js", "*.ts", "routes/*.ts"]
 }

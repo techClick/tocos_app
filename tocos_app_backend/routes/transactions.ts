@@ -10,8 +10,8 @@ router.post('/transactions', async (req, res) => {
   const tocos = Number(requestBody.tocos)
   try {
     const client = await db.connect()
-    const allUsers = await client.sql`SELECT currval('public.users_id_seq')`
-    const allUsersLength = allUsers.rows[0].currval
+    const allUsers = await client.sql`SELECT MAX(id) from Users`
+    const allUsersLength = allUsers.rows[0].max
     if (Number(senderId) > allUsersLength) {
       return res.status(400).json((networkResponse('error', 'Sender Id does not exist')))
     }

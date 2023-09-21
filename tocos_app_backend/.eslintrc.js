@@ -22,10 +22,7 @@ module.exports = {
         }
     ],
     "parserOptions": {
-        "ecmaVersion": "latest",
-        "parser": "@typescript-eslint/parser",
-        "project": "./tsconfig.json",
-        "tsconfigRootDir": __dirname
+        "ecmaVersion": "latest"
     },
     "rules": {
       "@typescript-eslint/no-var-requires": 0,
