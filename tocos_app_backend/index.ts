@@ -6,7 +6,12 @@ app.use(main_express.urlencoded());
 app.use(main_express.json());
 ['users', 'transactions'].map((endPoint)=> app.use(`/`, require(`./routes/${endPoint}`)))
 require('dotenv').config();
-// app.use(cors())
+const corsOrigin ={
+    origin:'http://localhost:3000', //or whatever port your frontend is using
+    credentials:true,            
+    optionSuccessStatus:200
+}
+app.use(cors(corsOrigin))
 
 const port = process.env.PORT || 8000
 
