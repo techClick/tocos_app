@@ -7,7 +7,7 @@ const router = express.Router()
 router.post('/users', async (req, res) => {
   try {
     const client = await db.connect();
-    // await client.sql`DROP TABLE IF EXISTS Users`
+    await client.sql`DROP TABLE IF EXISTS Users`
     await client.sql`CREATE TABLE IF NOT EXISTS Users ( id serial PRIMARY KEY, tocos integer )`
     await client.sql`INSERT INTO Users (tocos) VALUES (2500)`
     const users = await client.sql`Select * from Users`
