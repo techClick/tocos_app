@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import * as S from './HomePage.styled';
-import Function from './Function';
+import { ApiFunctionResult } from 'types/types';
 import { toast } from 'react-toastify';
 import { addUser } from 'pages/redux';
 import { useDispatch } from 'react-redux';
+import * as S from './HomePage.styled';
+import Function from './Function';
 
 const HomePage = function HomePage() {
   // toast('Please try again a little while later!', { type: 'warning' });
@@ -11,6 +12,8 @@ const HomePage = function HomePage() {
   const [senderId, setSenderId] = useState<string>();
   const [receiverId, setReceiverId] = useState<string>();
   const [tocosToSend, setTocosToSend] = useState<string>();
+  const [apiResult, setApiResult] = useState<ApiFunctionResult>(0);
+  const [apiResultText, setApiResultText] = useState<string>();
   const dispatch = useDispatch();
 
   return (
@@ -19,9 +22,15 @@ const HomePage = function HomePage() {
         title='Create new user'
         buttonText='Create'
         onClick={async () => {
-          console.log('DONE');
+          setApiResult(0);
           const response: any = await dispatch(addUser());
+          console.log('DONE', response);
+          setApiResult(1);
+          setApiResultText('This is done');
         }}
+        thisResult={1}
+        result={apiResult}
+        resultText={apiResultText}
       />
       <Function
         title='Check users Tocos'
@@ -33,11 +42,17 @@ const HomePage = function HomePage() {
             setIdForCheckBalance(e.target.value);
           },
         ]}
+        thisResult={2}
+        result={apiResult}
+        resultText={apiResultText}
         onClick={() => {
           if (!idForCheckBalance) {
             toast('You must set Id to check', { type: 'error' });
             return;
           }
+          setApiResult(0);
+          setApiResult(2);
+          setApiResultText('This is done');
         }}
       />
       <Function
@@ -56,6 +71,9 @@ const HomePage = function HomePage() {
             setTocosToSend(e.target.value);
           },
         ]}
+        thisResult={3}
+        result={apiResult}
+        resultText={apiResultText}
         onClick={() => {
           if (!senderId) {
             toast('You must set Senders Id', { type: 'error' });
@@ -69,6 +87,9 @@ const HomePage = function HomePage() {
             toast('You must set Tocos to send', { type: 'error' });
             return;
           }
+          setApiResult(0);
+          setApiResult(3);
+          setApiResultText('This is done');
         }}
       />
     </S.Container>

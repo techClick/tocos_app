@@ -2,6 +2,10 @@ import styled, { CSSProperties } from 'styled-components';
 
 export const Container = styled.div`
   width: 70%;
+`;
+
+export const TopContainer = styled.div`
+  width: 100%;
   max-width: 500px;
   height: max-content;
   padding: 30px 20px;
@@ -31,5 +35,20 @@ export const Input = styled.input<{ width: CSSProperties['width'] }>`
   width: ${({ width }) => width};
   height: 50px;
   padding-left: 10px;
+  font-size: 15px;
+`;
+
+export const ResultContainer = styled.div<{ showThisResult: boolean }>`
+  width: 100%;
+  max-width: 500px;
+  min-height: 0px;
+  height: ${({ showThisResult }) => showThisResult ? '20px' : '0px'};
+  padding: ${({ showThisResult }) => showThisResult ? '20px 20px' : '0px 20px'};;
+  background: #efefef;
+  border-left: 20px solid lightgreen;
+  transition: all .35s ease-in-out;
+`;
+
+export const Result = styled.div`
   font-size: 15px;
 `;

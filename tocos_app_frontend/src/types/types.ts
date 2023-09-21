@@ -17,3 +17,5 @@ export type CallArgs = {
   noStringify?: boolean;
   noContentType?: boolean;
 };
+
+export type ApiFunctionResult = 0 | 1 | 2 | 3;
