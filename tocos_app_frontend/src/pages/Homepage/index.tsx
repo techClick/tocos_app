@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Homepage = function Homepage() {
+const HomePage = function HomePage() {
   // toast('Please try again a little while later!', { type: 'warning' });
 
   return (
@@ -10,4 +10,4 @@ const Homepage = function Homepage() {
   );
 };
 
-export default Homepage;
+export default HomePage;
