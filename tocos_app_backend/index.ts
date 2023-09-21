@@ -7,7 +7,7 @@ app.use(main_express.json());
 ['users', 'transactions'].map((endPoint)=> app.use(`/`, require(`./routes/${endPoint}`)))
 require('dotenv').config();
 const corsOrigin ={
-    origin:'http://localhost:3000', //or whatever port your 
+    origin:'http://localhost:3000', //or whatever port your frontend is using
     credentials:true,            
     optionSuccessStatus:200
 }
