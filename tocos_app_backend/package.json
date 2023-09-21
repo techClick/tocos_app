@@ -8,13 +8,21 @@
     "@vercel/postgres": "^0.4.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "eslint": "^8.0.1",
     "express": "^4.18.2",
     "nodemon": "^3.0.1",
     "pg": "^8.11.3",
     "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
+    "typescript": "*"
   },
   "scripts": {
     "start": "nodemon index.ts"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "eslint-config-standard-with-typescript": "^39.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0"
   }
 }
