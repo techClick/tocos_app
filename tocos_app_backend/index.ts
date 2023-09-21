@@ -2,12 +2,7 @@
 const main_express = require('express')
 const cors = require('cors')
 const app = main_express();
-const corsOrigin ={
-    origin:'http://localhost:3000', //or whatever port your frontend is using
-    credentials:true,            
-    optionSuccessStatus:200
-}
-app.use(cors(corsOrigin))
+app.use(cors())
 app.use(main_express.urlencoded());
 app.use(main_express.json());
 ['users', 'transactions'].map((endPoint)=> app.use(`/`, require(`./routes/${endPoint}`)))
