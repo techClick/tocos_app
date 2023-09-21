@@ -1,3 +1,6 @@
+/* eslint-disable quote-props */
+/* eslint-disable @typescript-eslint/quotes */
+/* eslint-disable @typescript-eslint/indent */
 module.exports = {
     "env": {
         "browser": true,
@@ -19,7 +22,10 @@ module.exports = {
         }
     ],
     "parserOptions": {
-        "ecmaVersion": "latest"
+        "ecmaVersion": "latest",
+        "parser": "@typescript-eslint/parser",
+        "project": "./tsconfig.json",
+        "tsconfigRootDir": __dirname
     },
     "rules": {
       "@typescript-eslint/no-var-requires": 0,
