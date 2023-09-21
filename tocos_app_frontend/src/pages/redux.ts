@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { callEndpoint } from '../endPoint/endPoint';
+import { callEndpoint } from '../endpoint/endpoint';
 import { RootState } from '../redux/store';
 import { IResponse } from '../types/types';
 
@@ -12,7 +12,7 @@ const initialState: ViewsState = {
 };
 
 export const counterSlice = createSlice({
-  name: 'views',
+  name: 'pages',
   initialState,
   reducers: {
     setIsProductInterest: (state, action) => {
@@ -23,7 +23,7 @@ export const counterSlice = createSlice({
 
 export const { setIsProductInterest } = counterSlice.actions;
 
-export const selectIsProductInterest = (state: RootState) => state.views.isProductInterest;
+export const selectIsProductInterest = (state: RootState) => state.pages.isProductInterest;
 
 export default counterSlice.reducer;
 
