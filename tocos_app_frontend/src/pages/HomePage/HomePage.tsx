@@ -41,7 +41,7 @@ const HomePage = function HomePage() {
         resultText={apiResultText}
       />
       <Function
-        title='Check users Tocos'
+        title="Check user's Tocos"
         buttonText='Check'
         buttonTestId='check-button'
         inputPlaceholders={['User ID']}

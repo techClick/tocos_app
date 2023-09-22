@@ -20,7 +20,7 @@ describe('Homepage works correctly', () => {
     );
     const screenText1 = getAllByText(/Create new user/i);
     expect(screenText1).toBeTruthy();
-    const screenText2 = getAllByText(/Check users Tocos/i);
+    const screenText2 = getAllByText(/Check user's Tocos/i);
     expect(screenText2).toBeTruthy();
     const screenText3 = getAllByText(/Transact/i);
     expect(screenText3).toBeTruthy();
