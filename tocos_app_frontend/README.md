@@ -5,7 +5,9 @@ I deployed it on free hosting with Vercel. Link to the live app [Click here](htt
 
 ## Design choices
 
-Test Driven Development TDD and CI/CD.
+Test Driven Development TDD,
+Modularity. Modularity specifies dividing the software into separate modules,
+and CI/CD.
 
 ## Available Scripts
 

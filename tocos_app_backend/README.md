@@ -6,7 +6,9 @@ I used PORT 8000 for this app.
 
 ## Design choices
 
-Test Driven Development TDD and CI/CD.
+Test Driven Development TDD,
+Modularity. Modularity specifies dividing the software into separate modules,
+and CI/CD.
 
 ## Available Scripts
 
