@@ -1,6 +1,6 @@
 # tocos_app
 
-Please use the reamde.md files in the tocos-app-frontend and tocos-app-backend files to view the front and backend of the application.
+Please view the respective reamde.md files in the tocos-app-frontend and tocos-app-backend directories.
 
 ## Shotcuts taken due to time limit
 
