@@ -5,4 +5,7 @@ Please use the reamde.md files in the frontend and backend to understand the app
 ## Shotcuts taken due to time limit
 
 Docker. Not enough time to make a more suitable docker file.
-Design documentation. Not enough time to fully explain these. I used Test Driven Development TDD, Modularity and CI/CD.
+
+Design documentation. Not enough time to fully explain these. 
+
+I used Test Driven Development TDD, Modularity and CI/CD.
