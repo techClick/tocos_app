@@ -6,8 +6,8 @@ I used PORT 8000 for this app.
 
 ## Design choices
 
-Test Driven Development TDD,
-Modularity. Modularity specifies dividing the software into separate modules,
+Test Driven Development TDD.\
+Modularity. Modularity specifies dividing the software into separate modules.\
 and CI/CD.
 
 ## Available Scripts
@@ -22,5 +22,5 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.
+Launches the test runner in the interactive watch mode.\
 Make sure you are in the directory `tocos_app/tocos-app-backend` before running `yarn test`

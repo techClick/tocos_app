@@ -5,8 +5,8 @@ I deployed it on free hosting with Vercel. Link to the live app [Click here](htt
 
 ## Design choices
 
-Test Driven Development TDD,
-Modularity. Modularity specifies dividing the software into separate modules,
+Test Driven Development TDD.\
+Modularity. Modularity specifies dividing the software into separate modules.\
 and CI/CD.
 
 ## Available Scripts
@@ -21,5 +21,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.
+Launches the test runner in the interactive watch mode.\
 Make sure you are in the directory `tocos_app/tocos-app-frontend` before running `yarn test`
