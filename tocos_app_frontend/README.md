@@ -13,11 +13,13 @@ and CI/CD.
 
 below are the scripts you use to run the application in development:
 
-### `npm start`
+### `yarn start`
 
 Runs the app in the development mode.\
+Make sure you are in the directory `tocos_app/tocos-app-frontend` before running `yarn start`
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm test`
+### `yarn test`
 
 Launches the test runner in the interactive watch mode.
+Make sure you are in the directory `tocos_app/tocos-app-frontend` before running `yarn test`
