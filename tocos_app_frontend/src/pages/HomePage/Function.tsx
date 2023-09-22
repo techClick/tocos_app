@@ -8,6 +8,8 @@ type FunctionProps = {
   buttonText?: string,
   inputPlaceholders?: string[],
   inputValues?: number[],
+  inputTestIds?: string[],
+  buttonTestId?: string,
   handleInputChange?: Function[],
   onClick?: () => void,
   thisResult?: Omit<ApiFunctionResult, 0>,
@@ -19,6 +21,8 @@ const Function = function Function({
   buttonText,
   inputPlaceholders,
   inputValues,
+  inputTestIds,
+  buttonTestId,
   handleInputChange,
   onClick,
   thisResult,
@@ -34,6 +38,7 @@ const Function = function Function({
           {title}
           <S.ButtonContainer>
             <Button
+              data-testid={buttonTestId}
               variant='outlined'
               onClick={() => onClick?.()}
             >
@@ -47,6 +52,8 @@ const Function = function Function({
               {
                 inputPlaceholders.map((placeholder, i) => (
                   <S.Input
+                    key={`Icont_${placeholder}`}
+                    data-testid={inputTestIds?.[i]}
                     value={(inputValues?.[i] || '').toString()}
                     width={`calc(${100 / inputPlaceholders.length}% - 10px)`}
                     placeholder={placeholder}

@@ -23,6 +23,7 @@ const HomePage = function HomePage() {
       <Function
         title='Create new user'
         buttonText='Create'
+        buttonTestId='create-button'
         onClick={async () => {
           setApiResult(0);
           setIsShowLoading(true);
@@ -42,8 +43,10 @@ const HomePage = function HomePage() {
       <Function
         title='Check users Tocos'
         buttonText='Check'
+        buttonTestId='check-button'
         inputPlaceholders={['User ID']}
         inputValues={[Number(idForCheckBalance)]}
+        inputTestIds={['check-input']}
         handleInputChange={[
           (e: React.ChangeEvent<HTMLInputElement>) => {
             setIdForCheckBalance(e.target.value);
@@ -74,8 +77,10 @@ const HomePage = function HomePage() {
       <Function
         title='Transact'
         buttonText='Send'
+        buttonTestId='transact-button'
         inputPlaceholders={['Sender ID', 'Reciever ID', 'Tocos']}
         inputValues={[Number(senderId), Number(receiverId), Number(tocosToSend)]}
+        inputTestIds={['transact-input-1', 'transact-input-2', 'transact-input-3']}
         handleInputChange={[
           (e: React.ChangeEvent<HTMLInputElement>) => {
             setSenderId(e.target.value);
