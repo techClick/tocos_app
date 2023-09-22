@@ -23,13 +23,13 @@ describe('/transactions api', () => {
     expect(res3.statusCode).toBe(200)
   }, 7000)
 
-  it('Sender tocos decreases correctly', async () => {
+  it('Senders tocos decreases correctly', async () => {
     const res = await request(app.use(users)).get(`/users/${senderId}`)
     const tocos = JSON.parse(res._body).data
     expect(tocos).toBe(500)
   })
 
-  it('Receiver tocos increases correctly', async () => {
+  it('Receivers tocos increases correctly', async () => {
     const res = await request(app.use(users)).get(`/users/${receiverId}`)
     const tocos = JSON.parse(res._body).data
     expect(tocos).toBe(4500)
