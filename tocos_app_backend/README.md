@@ -14,6 +14,10 @@ and CI/CD.
 
 below are the scripts you use to run the application in development:
 
+### `yarn install`
+
+This will install the app dependencies neccessary to run the application.
+
 ### `yarn start`
 
 Runs the app in the development mode.\
