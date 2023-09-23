@@ -22,7 +22,7 @@ Make sure you are in the directory `tocos_app/tocos-app-backend` before running 
 
 Runs the app in the development mode.\
 Make sure you are in the directory `tocos_app/tocos-app-backend` before running `yarn start`\
-Now you are ready to run the frontend app in `tocos_app/tocos-app-backend` 
+Now you are ready to run the frontend app in `tocos_app/tocos-app-frontend` 
 
 ### `yarn test`
 
