@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-      "types": ["node", "jest"]
+    "baseUrl": "",
+    "types": ["node", "jest"]
   },
   "include": [".eslintrc.js", "babel.config.js", "*.ts", "routes/*.ts"],
   "target": "esnext", 

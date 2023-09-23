@@ -1,8 +1,9 @@
-import { db } from '@vercel/postgres'
 import { networkResponse } from './globals'
 import Express from 'express'
 const express = require('express')
 const router = express.Router()
+const client = require('./connection')
+
 interface TypedRequestBody<T> extends Express.Request {
   body: T
 }
@@ -17,9 +18,8 @@ router.post('/transactions', async (req: TypedRequestBody<{
   const receiverId = requestBody.receiverId
   const tocos = requestBody.tocos
   try {
-    const client = await db.connect()
-    const allUsers = await client.sql`SELECT MAX(id) from Users`
-    const allUsersLength = allUsers.rows[0].max
+    let result = await client.query('SELECT MAX(id) from Users')
+    const allUsersLength = result.rows[0].max
     if (senderId > allUsersLength) {
       return res.status(400).json((networkResponse('error', 'Sender Id does not exist')))
     }
@@ -27,18 +27,18 @@ router.post('/transactions', async (req: TypedRequestBody<{
       return res.status(400).json((networkResponse('error', 'Receiver Id does not exist')))
     }
 
-    const senderData = await client.sql`Select tocos from Users WHERE id=${senderId}`
-    const senderTocos = Number(senderData.rows[0].tocos)
+    result = await client.query(`Select tocos from Users WHERE id=${senderId}`)
+    const senderTocos = Number(result.rows[0].tocos)
     const newSenderTocos = senderTocos - tocos
     if (newSenderTocos < 0) {
       return res.status(400).json((networkResponse('error', 'Sender does not have enough Tocos')))
     }
-    await client.sql`UPDATE Users SET tocos = ${newSenderTocos} WHERE id=${senderId}`
+    await client.query(`UPDATE Users SET tocos = ${newSenderTocos} WHERE id=${senderId}`)
 
-    const receiverData = await client.sql`Select tocos from Users WHERE id=${receiverId}`
-    const receiverTocos = Number(receiverData.rows[0].tocos)
+    result = await client.query(`Select tocos from Users WHERE id=${receiverId}`)
+    const receiverTocos = Number(result.rows[0].tocos)
     const newreceiverTocos = receiverTocos + tocos
-    await client.sql`UPDATE Users SET tocos = ${newreceiverTocos} WHERE id=${receiverId}`
+    await client.query(`UPDATE Users SET tocos = ${newreceiverTocos} WHERE id=${receiverId}`)
 
     res.status(200).json((networkResponse('success', true)))
   } catch (error) {

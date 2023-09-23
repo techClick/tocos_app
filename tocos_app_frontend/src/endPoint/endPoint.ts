@@ -7,13 +7,15 @@ export const callEndpoint = ({
     method,
     headers: {
       'Content-Type': 'application/json',
+      // eslint-disable-next-line quote-props
+      'Connection': 'keep-alive',
     },
     body,
   };
   // if (noContentType) delete options.headers['Content-Type'];
   try {
     const url = process.env.REACT_APP_API;
-    // console.log('calling ..... ', `${url}${api}`);
+    console.log('calling ..... ', `${url}${api}`);
     const response = await fetch(
       `${url}${api}`,
       options,
