@@ -28,4 +28,5 @@ Open [http://localhost:3000](http://localhost:3000) to view the started app in t
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
-Make sure you are in the directory `tocos_app/tocos-app-frontend` before running `yarn test`
+Make sure you are in the directory `tocos_app/tocos-app-frontend` before running `yarn test`\
+press key `a` if test does not begin

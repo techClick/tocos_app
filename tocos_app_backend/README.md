@@ -27,4 +27,5 @@ Now you are ready to run the frontend app in `tocos_app/tocos-app-frontend`
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
-Make sure you are in the directory `tocos_app/tocos-app-backend` before running `yarn test`
+Make sure you are in the directory `tocos_app/tocos-app-backend` before running `yarn test`\
+press key `a` if test does not begin
