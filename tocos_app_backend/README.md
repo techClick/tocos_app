@@ -1,8 +1,7 @@
 # Getting Started with Tocos-app-backend
 
 This project was made with Node.js and TypeScript.
-I deployed it on free hosting with Vercel. Link to a get page of [userId:1](https://tocos-app-backend.vercel.app/users/1).
-I used PORT 8000 for this app.
+This app uses PORT `8000`, please make sure this PORT is free on your local computer.
 
 ## Design choices
 

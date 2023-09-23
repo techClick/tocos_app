@@ -1,7 +1,8 @@
 # Getting Started with Tocos-app-frontend
 
 This project was made with React.
-I deployed it on free hosting with Vercel. Link to the live app [Click here](https://tocos-app-frontend.vercel.app).
+NOTE: You need to run the backend on PORT `8000` before running the frontend.\
+The frontend uses `http://localhost:8000/` as the API URL.
 
 ## Design choices
 
@@ -11,7 +12,7 @@ and CI/CD.
 
 ## Available Scripts
 
-below are the scripts you use to run the application in development:
+below are the scripts you use to run the application in development:\
 
 ### `yarn install`
 
