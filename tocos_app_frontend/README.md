@@ -23,7 +23,7 @@ Make sure you are in the directory `tocos_app/tocos-app-frontend` before running
 
 Runs the app in the development mode.\
 Make sure you are in the directory `tocos_app/tocos-app-frontend` before running `yarn start`\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view the started app in the browser.
 
 ### `yarn test`
 
