@@ -1,6 +1,6 @@
 # Getting Started with Tocos-app-backend
 
-This project was made with Node.js and TypeScript.
+This project was made with Node.js, TypeScript and postgresSQL.\
 This app uses PORT `8000`, please make sure this PORT is free on your local computer.
 
 ## Design choices

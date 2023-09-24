@@ -70,7 +70,7 @@ const HomePage = function HomePage() {
               `User ${idForCheckBalance} has ${response.data} toco${Number(response.data) === 1 ? '' : 's'}.`,
             );
           } else {
-            toast(`No such user. Last user id is ${response.data}.`, { type: 'error' });
+            toast(response.data, { type: 'error' });
           }
         }}
       />
