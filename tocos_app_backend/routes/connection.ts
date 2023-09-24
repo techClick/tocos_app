@@ -2,11 +2,11 @@ const { Client } = require('pg')
 require('dotenv').config()
 
 const clientTmp = new Client({
-  host: 'tai.db.elephantsql.com',
-  user: 'ppiliwco',
-  port: 5432,
-  password: process.env.PASSWORD, // 'delabEGO234',
-  database: 'ppiliwco'
+  host: process.env.HOST,
+  user: process.env.DBITEM,
+  port: process.env.DBPORT,
+  password: process.env.PASSWORD,
+  database: process.env.DBITEM
 })
 clientTmp.connect()
 
