@@ -1,7 +1,7 @@
 # Getting Started with Tocos-app-frontend
 
 This project was made with React.
-NOTE: You need to run the backend on PORT `8000` before running the frontend.\
+NOTE: You need to run the backend in `tocos_app/tocos-app-backend` before running the frontend.\
 The frontend uses `http://localhost:8000/` as the API URL.
 
 ## Design choices
