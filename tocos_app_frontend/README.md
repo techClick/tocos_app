@@ -16,7 +16,7 @@ below are the scripts you use to run the application in development:\
 
 ### `yarn install`
 
-This will install the app dependencies neccessary to run the application.
+This will install the app dependencies neccessary to run the application.\
 Make sure you are in the directory `tocos_app/tocos-app-frontend` before running `yarn install`
 
 ### `yarn start`
