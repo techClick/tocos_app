@@ -21,7 +21,7 @@ router.post('/transactions', async (req: TypedRequestBody<{
     await client.query('CREATE TABLE IF NOT EXISTS Users ( id serial PRIMARY KEY, tocos integer )')
     let result = await client.query('SELECT MAX(id) from Users')
     const allUsersLength = result.rows[0].max
-    if (senderId > allUsersLength) {
+    if (senderId > allUsersLength || !allUsersLength) {
       return res.status(400).json((networkResponse('error', 'Sender Id does not exist')))
     }
     if (receiverId > allUsersLength) {
